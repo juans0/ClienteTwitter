@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using capa_negocio;
 using capa_presentacion;
 using capa_entidades;
+using System.Windows.Threading;
 
 namespace capa_wpf
 {
@@ -26,6 +27,7 @@ namespace capa_wpf
         private int cont;        
         private Negocio negocio;
         private List<UserApp> listaUsuarios;
+        DispatcherTimer timer;
 
         public MainWindow()
         {
@@ -33,16 +35,21 @@ namespace capa_wpf
             listaUsuarios = negocio.cargarUsuarios();            
             cont = 0;
             InitializeComponent();
+            timer = new DispatcherTimer();
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            timer.Interval = new TimeSpan(0, 0, 5);
+
+            timer.Tick += Timer_Tick;
             if (txtNombre.Text == "" || txtContr.Text == "")
             {                
                 lblResult.Content = "Introduzca usuario y contraseña";                
                 txtNombre.Text = "";
                 txtContr.Text = "";
                 txtNombre.Focus();
+                timer.Start();
             }
             else
             {
@@ -68,11 +75,17 @@ namespace capa_wpf
                             txtNombre.Text = "";
                             txtContr.Text = "";
                             txtNombre.Focus();
+                            timer.Start();
                         }
                     }
                 }
 
             }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblResult.Content = "";
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
