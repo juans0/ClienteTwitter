@@ -68,12 +68,68 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PantFollowNoMeSiguen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantFollowNoSigo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantFollowTodos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantMencEliminar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantMencGestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantMencRecibir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantPromoAlta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantPromoGestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Principal_wpf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PantFollowNoMeSiguen.xaml.cs">
+      <DependentUpon>PantFollowNoMeSiguen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantFollowNoSigo.xaml.cs">
+      <DependentUpon>PantFollowNoSigo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantFollowTodos.xaml.cs">
+      <DependentUpon>PantFollowTodos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantMencEliminar.xaml.cs">
+      <DependentUpon>PantMencEliminar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantMencGestion.xaml.cs">
+      <DependentUpon>PantMencGestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantMencRecibir.xaml.cs">
+      <DependentUpon>PantMencRecibir.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantPromoAlta.xaml.cs">
+      <DependentUpon>PantPromoAlta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantPromoGestion.xaml.cs">
+      <DependentUpon>PantPromoGestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Principal_wpf.xaml.cs">
       <DependentUpon>Principal_wpf.xaml</DependentUpon>
     </Compile>
