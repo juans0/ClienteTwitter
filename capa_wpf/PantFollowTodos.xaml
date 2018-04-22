@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d"
-        Title="PantFollowTodos" Height="300" Width="300">
+        Title="Todos mis Followers" Height="700" Width="1024">
     <Grid>
-        
+        <!-- Definición Columnas -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Definición Filas-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"
+            x:Name="groupBox2" Header="Lista de Seguidores" Height="278" Width="1024">
+
+            <!-- DataGrid con un Databinding a una coleccion // SelectionChanged: Evento que se produce cuando hay un cambio en una selección-->
+            <DataGrid x:Name="data" ItemsSource="{Binding}" Height="217" Width="800"> <!--SelectionChanged="data_SelectionChanged" > -->
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn >
+                        <!-- Definición del template de visualización de columna. Usaremos un TextBlock -->
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image  x:Name="ImagenUsuario" Source="{Binding Path=Imagen}"
+                                                        Stretch="UniformToFill"
+                                                        Width="50" Height="50"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Nombre}" Width="638" Header="Nombre"/>
+                    <!-- Creo una columna con un tipo personalizado. Va contener un datepicker y un
+                         ProgressBar, pero podemos configurarlo como queramos -->
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </Window>
