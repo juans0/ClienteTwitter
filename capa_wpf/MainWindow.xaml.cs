@@ -1,19 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using capa_negocio;
-using capa_presentacion;
 using capa_entidades;
 using System.Windows.Threading;
 
@@ -28,6 +16,7 @@ namespace capa_wpf
         private Negocio negocio;
         private List<UserApp> listaUsuarios;
         DispatcherTimer timer;
+        Principal principal;
 
         public MainWindow()
         {
@@ -35,7 +24,7 @@ namespace capa_wpf
             listaUsuarios = negocio.cargarUsuarios();            
             cont = 0;
             InitializeComponent();
-            timer = new DispatcherTimer();
+            timer = new DispatcherTimer();            
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
@@ -60,9 +49,9 @@ namespace capa_wpf
                     {
                         string nombre = listaUsuarios[i].nombre;
                         int id = listaUsuarios[i].idUsuario;
-                        //principal = new Principal(nombre);
+                        principal = new Principal(nombre);
                         Hide();
-                        //principal.Show();
+                        principal.Show();
                     }
                     else
                     {
@@ -71,13 +60,12 @@ namespace capa_wpf
                         txtContr.Text = "";
                         txtNombre.Focus();
                         timer.Start();
-                    }
-
-                    cont++;
-                    Console.WriteLine("contador " + cont);
-                    if (cont >= 3)
-                        Close();
-                } 
+                    }                    
+                }
+                cont++;
+                Console.WriteLine("contador " + cont);
+                if (cont >= 3)
+                    Close();
             }
         }
 
