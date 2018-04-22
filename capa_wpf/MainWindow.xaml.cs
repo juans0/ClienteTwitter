@@ -61,25 +61,23 @@ namespace capa_wpf
                         string nombre = listaUsuarios[i].nombre;
                         int id = listaUsuarios[i].idUsuario;
                         //principal = new Principal(nombre);
-                        this.Hide();
+                        Hide();
                         //principal.Show();
                     }
                     else
                     {
-                        cont++;
-                        if (cont >= 3)
-                            this.Close();
-                        else
-                        {                            
-                            lblResult.Content = "Usuario o contraseña incorrectos";                            
-                            txtNombre.Text = "";
-                            txtContr.Text = "";
-                            txtNombre.Focus();
-                            timer.Start();
-                        }
+                        lblResult.Content = "Usuario o contraseña incorrectos";
+                        txtNombre.Text = "";
+                        txtContr.Text = "";
+                        txtNombre.Focus();
+                        timer.Start();
                     }
-                }
 
+                    cont++;
+                    Console.WriteLine("contador " + cont);
+                    if (cont >= 3)
+                        Close();
+                } 
             }
         }
 
@@ -90,7 +88,7 @@ namespace capa_wpf
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
