@@ -5,67 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d"
-        Title="Principal_wpf" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="Principal_wpf" Height="700" Width="1024" ResizeMode="NoResize">
    
     <Grid>
         <StackPanel>
             <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="517">
-                <MenuItem Header="Archivo" >
-                          <MenuItem x:Name="Salir" Header="Salir" Click="MenuItem_Click_Salir"/>
+                <MenuItem Header="Archivo">
+                    <MenuItem x:Name="Salir" Header="Salir" Click="MenuItem_Click_Salir"/>
                 </MenuItem>
-                <MenuItem Header="Mis Followers" >
+                <MenuItem Header="Mis Followers">
                     <MenuItem x:Name="Todos" Header="Todos" Click="MenuItem_Click_Todos" />
                     <MenuItem x:Name="NoSigo" Header="No sigo" Click="MenuItem_Click_NoSigo"/>
                     <MenuItem x:Name="NoMeSiguen" Header="Ya no me siguen" Click="MenuItem_Click_NoMeSiguen"/>
                 </MenuItem>
-                <MenuItem Header="Menciones" Click="MenuItem_Click_Menciones"/>
-                <MenuItem Header="Promociones" Click="MenuItem_Click_Promociones"/>
+                <MenuItem Header="Menciones">
+                    <MenuItem x:Name="Recibir" Header="Recibir" Click="MenuItem_Click_Recibir" />
+                    <MenuItem x:Name="GestionMen" Header="Gestión" Click="MenuItem_Click_GestMen"/>
+                    <MenuItem x:Name="Eliminar" Header="Eliminar" Click="MenuItem_Click_Eliminar"/>
+                </MenuItem>
+                <MenuItem Header="Promociones">
+                    <MenuItem x:Name="Alta" Header="Alta" Click="MenuItem_Click_Alta" />
+                    <MenuItem x:Name="GestionPromo" Header="Gestión" Click="MenuItem_Click_GestPromo"/>
+                </MenuItem>
             </Menu>
             
-            <!-- Pantalla Archivo -->
-            <Grid x:Name="PantArchivo" Height="299">
+            <!-- Pantalla Archivo Salir -->
+            <Grid x:Name="PantArchSalir" Height="768">
+                <Grid Background="AliceBlue">
+                    <Image x:Name="imgTwitter" Source="twitter.png"/>
+                </Grid>
+            </Grid>
+
+            <!-- Pantalla Mis Followers Todos -->
+            <Grid x:Name="PantFollowTodos"  Height="768" Visibility="Collapsed">
+                <Grid Background="Aquamarine">
+                    <Image x:Name="imgTwitterF" Source="twitter.png"/>
+                </Grid>
+
+                <!-- <Button x:Name="btnFollowTodos" Content="Todos Followers" HorizontalAlignment="Left" Margin="108,139,0,0" VerticalAlignment="Top" Width="75"/> -->
+            </Grid>
+
+            <!-- Pantalla Mis Followers Que no sigo -->
+            <Grid x:Name="PantFollowNoSigo"  Height="299" Visibility="Collapsed">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFA2D5E8" Offset="0.58"/>
+                        <GradientStop Color="#FFA2E8A8" Offset="0.58"/>
                     </LinearGradientBrush>
+                    
                 </Grid.Background>
-                <Button x:Name="Archivo" Content="Archivo" HorizontalAlignment="Left" Margin="219,137,0,0" VerticalAlignment="Top" Width="75"/>
+                <Image x:Name="imgTwitterFN" Source="twitter.png"/>
             </Grid>
 
-            <!-- Pantalla Mis Followers -->
-            <Grid x:Name="PantFollowers"  Height="299" Visibility="Collapsed">
+            <!-- Pantalla Mis Followers Que ya no me siguen -->
+            <Grid x:Name="PantFollowNoMeSiguen"  Height="299" Visibility="Collapsed">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFA2E8A8" Offset="0.58"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-
-                <Button x:Name="Followers" Content="Followers" HorizontalAlignment="Left" Margin="108,139,0,0" VerticalAlignment="Top" Width="75"/>
             </Grid>
-            
-            <!-- Pantalla Menciones -->
-            <Grid x:Name="PantMenciones" Height="299" Visibility="Collapsed">
+
+            <!-- Pantalla Menciones Recibir -->
+            <Grid x:Name="PantMencRecibir" Height="299" Visibility="Collapsed">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFA2D5E8" Offset="0.58"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Button x:Name="Menciones" Content="Menciones" HorizontalAlignment="Left" Margin="219,137,0,0" VerticalAlignment="Top" Width="75"/>
             </Grid>
 
-            <!-- Pantalla Promociones -->
-            <Grid x:Name="PantPromociones"  Height="299" Visibility="Collapsed">
+            <!-- Pantalla Menciones Gestión -->
+            <Grid x:Name="PantMencGestion" Height="299" Visibility="Collapsed">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFA2D5E8" Offset="0.58"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+
+            <!-- Pantalla Menciones Eliminar -->
+            <Grid x:Name="PantMencEliminar" Height="299" Visibility="Collapsed">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFA2D5E8" Offset="0.58"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+
+            <!-- Pantalla Promociones Alta -->
+            <Grid x:Name="PantPromoAlta"  Height="299" Visibility="Collapsed">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFA2E8A8" Offset="0.58"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Button x:Name="Promociones" Content="Promociones" HorizontalAlignment="Left" Margin="219,137,0,0" VerticalAlignment="Top" Width="75"/>
             </Grid>
+
+            <!-- Pantalla Promociones Gestión -->
+            <Grid x:Name="PantPromoGestion"  Height="299" Visibility="Collapsed">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFA2E8A8" Offset="0.58"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Window>
