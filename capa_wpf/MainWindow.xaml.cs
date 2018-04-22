@@ -16,7 +16,7 @@ namespace capa_wpf
         private Negocio negocio;
         private List<UserApp> listaUsuarios;
         DispatcherTimer timer;
-        Principal principal;
+        Principal_wpf wpfPr;
 
         public MainWindow()
         {
@@ -32,11 +32,11 @@ namespace capa_wpf
             timer.Interval = new TimeSpan(0, 0, 5);
 
             timer.Tick += Timer_Tick;
-            if (txtNombre.Text == "" || txtContr.Text == "")
+            if (txtNombre.Text == "" || txtContr.Password == "")
             {                
                 lblResult.Content = "Introduzca usuario y contraseña";                
                 txtNombre.Text = "";
-                txtContr.Text = "";
+                txtContr.Password = "";
                 txtNombre.Focus();
                 timer.Start();
             }
@@ -45,19 +45,19 @@ namespace capa_wpf
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
                     if (txtNombre.Text == listaUsuarios[i].usuario
-                    && txtContr.Text == listaUsuarios[i].contrasenia)
+                    && txtContr.Password == listaUsuarios[i].contrasenia)
                     {
                         string nombre = listaUsuarios[i].nombre;
                         int id = listaUsuarios[i].idUsuario;
-                        principal = new Principal(nombre);
+                        wpfPr = new Principal_wpf(nombre);
                         Hide();
-                        principal.Show();
+                        wpfPr.Show();
                     }
                     else
                     {
                         lblResult.Content = "Usuario o contraseña incorrectos";
                         txtNombre.Text = "";
-                        txtContr.Text = "";
+                        txtContr.Password = "";
                         txtNombre.Focus();
                         timer.Start();
                     }                    
