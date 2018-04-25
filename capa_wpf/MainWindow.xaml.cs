@@ -39,6 +39,7 @@ namespace capa_wpf
                 txtContr.Password = "";
                 txtNombre.Focus();
                 timer.Start();
+                
             }
             else
             {
@@ -52,6 +53,7 @@ namespace capa_wpf
                         wpfPr = new Principal_wpf(nombre);
                         Hide();
                         wpfPr.Show();
+                        return;
                     }
                     else
                     {

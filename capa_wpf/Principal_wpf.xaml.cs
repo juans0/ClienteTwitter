@@ -25,6 +25,7 @@ namespace capa_wpf
         {
             InitializeComponent();
             mWindow = new MainWindow();
+            lblUsuario.Content += nombre;
         }
 
         private void MenuItem_Click_Salir(object sender, RoutedEventArgs e)
@@ -39,106 +40,58 @@ namespace capa_wpf
 
         private void MenuItem_Click_Todos(object sender, RoutedEventArgs e)
         {
-            PantArchSalir.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantFollowTodos.Visibility = Visibility.Visible;            
+            PantFollowTodos tFollow = new PantFollowTodos();
+            //this.Hide();
+            tFollow.Show();
         }
 
         private void MenuItem_Click_NoSigo(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;          
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Visible;
+            PantFollowNoSigo noFollow = new PantFollowNoSigo();
+            //this.Hide();
+            noFollow.Show();
         }
 
         private void MenuItem_Click_NoMeSiguen(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Visible;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantFollowNoMeSiguen noFollowers = new PantFollowNoMeSiguen();
+            //Hide();
+            noFollowers.Show();
         }
 
         private void MenuItem_Click_Recibir(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Visible;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantMencRecibir pRec = new PantMencRecibir();
+            //Hide();
+            pRec.Show();
         }
 
         private void MenuItem_Click_GestMen(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Visible;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantMencGestion pMGest = new PantMencGestion();
+            //Hide();
+            pMGest.Show();
         }
 
         private void MenuItem_Click_Eliminar(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Visible;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantMencEliminar pElim = new PantMencEliminar();
+            //Hide();
+            pElim.Show();
         }
 
         private void MenuItem_Click_Alta(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Visible;
-            PantPromoGestion.Visibility = Visibility.Collapsed;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantPromoAlta pAlta = new PantPromoAlta();
+            //Hide();
+            pAlta.Show();
         }
 
         private void MenuItem_Click_GestPromo(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos.Visibility = Visibility.Collapsed;
-            PantFollowNoSigo.Visibility = Visibility.Collapsed;
-            PantFollowNoMeSiguen.Visibility = Visibility.Collapsed;
-            PantMencRecibir.Visibility = Visibility.Collapsed;
-            PantMencGestion.Visibility = Visibility.Collapsed;
-            PantMencEliminar.Visibility = Visibility.Collapsed;
-            PantPromoAlta.Visibility = Visibility.Collapsed;
-            PantPromoGestion.Visibility = Visibility.Visible;
-            PantArchSalir.Visibility = Visibility.Collapsed;
+            PantPromoGestion pPGest = new PantPromoGestion();
+            //Hide();
+            pPGest.Show();
         }
     }               
 }

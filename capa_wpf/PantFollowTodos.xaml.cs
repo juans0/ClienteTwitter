@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using capa_negocio;
 
 namespace capa_wpf
 {
@@ -19,6 +20,8 @@ namespace capa_wpf
     /// </summary>
     public partial class PantFollowTodos : Window
     {
+        Negocio n;
+
         public PantFollowTodos()
         {
             InitializeComponent();
