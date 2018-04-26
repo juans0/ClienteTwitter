@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using capa_negocio;
 
 namespace capa_wpf
 {
@@ -20,11 +21,13 @@ namespace capa_wpf
     public partial class Principal_wpf : Window
     {
         MainWindow mWindow;
+        Negocio n;
 
-        public Principal_wpf(string nombre)
+        public Principal_wpf(string nombre, Negocio neg)
         {
             InitializeComponent();
             mWindow = new MainWindow();
+            n = neg;
             lblUsuario.Content += nombre;
         }
 
@@ -40,7 +43,7 @@ namespace capa_wpf
 
         private void MenuItem_Click_Todos(object sender, RoutedEventArgs e)
         {
-            PantFollowTodos tFollow = new PantFollowTodos();
+            PantFollowTodos tFollow = new PantFollowTodos(n);
             //this.Hide();
             tFollow.Show();
         }

@@ -50,7 +50,7 @@ namespace capa_wpf
                     {
                         string nombre = listaUsuarios[i].nombre;
                         int id = listaUsuarios[i].idUsuario;
-                        wpfPr = new Principal_wpf(nombre);
+                        wpfPr = new Principal_wpf(nombre, negocio);
                         Hide();
                         wpfPr.Show();
                         return;

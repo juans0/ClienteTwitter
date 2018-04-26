@@ -21,10 +21,28 @@ namespace capa_wpf
     public partial class PantFollowTodos : Window
     {
         Negocio n;
+        List<UsuariosFollowers> misFollowers;
 
-        public PantFollowTodos()
+        public PantFollowTodos(Negocio neg)
         {
             InitializeComponent();
+            n = neg;
+            misFollowers = n.obtenerFollowers();
+            gridSeguidores.ItemsSource = misFollowers;
+        }
+
+        private void cambiarSeleccionGrid(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid data = (DataGrid)sender;
+            UsuariosFollowers fila = (UsuariosFollowers)data.SelectedItem;
+            mostrarDetalles(fila);
+        }
+
+        private void mostrarDetalles(UsuariosFollowers temp)
+        {
+            nombre.Content = temp.Nombre;            
+            seguidores.Content = temp.Followers;
+            //imagenFollower. = new BitmapImage(new Uri(temp.Imagen, UriKind.Absolute));
         }
     }
 }
