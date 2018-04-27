@@ -28,7 +28,7 @@
 
             <!-- DataGrid con un Databinding a una coleccion // SelectionChanged: Evento que se produce cuando hay un cambio en una selección-->
             <DataGrid x:Name="gridSeguidores" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single" IsReadOnly="True" Margin="0,0,17,0"
-                      AlternatingRowBackground="#FF779EAA" AutoGenerateColumns="False">
+                      RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
 
                 <DataGrid.Columns>
                     <!-- Creo una columna con un tipo personalizado. -->
@@ -65,11 +65,29 @@
                 <Label x:Name="imagenFollower" Grid.Row="0" Grid.Column="0">
                     
                 </Label> -->
-                <!-- Nombre -->
-                <Label x:Name="nombre" Content="" Background="#545d6a" Foreground="White" Grid.Row="0"  FontWeight="Bold" Grid.Column="1" FontSize="16"/>
-                <!-- Seguidores -->
-                <Label x:Name="seguidores" Content="" Background="#545d6a" Foreground="White" Grid.Row="0"  FontWeight="Bold" Grid.Column="2" FontSize="16"/>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
+                    <!-- Nombre -->
+                    <Label Content="Nombre:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="1" FontSize="16"/>
+                    <Label x:Name="nombre" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1" FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <!-- Seguidores -->
+                    <Label Content="Followers:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="2" FontSize="16"/>
+                    <Label x:Name="seguidores" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1"  FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+
+                </Grid>
             </Grid>
         </GroupBox>
 

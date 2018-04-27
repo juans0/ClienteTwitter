@@ -50,7 +50,7 @@ namespace capa_wpf
 
         private void MenuItem_Click_NoSigo(object sender, RoutedEventArgs e)
         {
-            PantFollowNoSigo noFollow = new PantFollowNoSigo();
+            PantFollowNoSigo noFollow = new PantFollowNoSigo(n);
             //this.Hide();
             noFollow.Show();
         }
