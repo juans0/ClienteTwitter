@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d"
-        Title="PantMencRecibir" Height="300" Width="300">
+        Title="Recibir Menciones" Height="700" Width="1024">
     <Grid>
-        
+        <GroupBox x:Name="groupBox" Header="Menciones">
+           
+            <DataGrid x:Name="data" ItemsSource="{Binding}" Height="600" Width="990">
+                <DataGrid.Columns>
+
+                    <!--Columna con la foto del usuario -->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image  x:Name="ImagenFollower" Source="{Binding Path=Imagen}" Stretch="UniformToFill" Width="50" Height="50"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Aqui definimos los datos del usuario -->
+                    <DataGridTemplateColumn Width="*">
+
+                        <!-- Definición del template de visualización de columna. Usaremos un TextBlock -->
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock  x:Name="nombre"  FontSize="25" FontWeight="Bold"      Text="{Binding nombre}"/>
+                                    <TextBlock  x:Name="text"  FontSize="20"  FontWeight="Bold"  FontStyle="Italic"  Text="{Binding text}"/>
+                                    <TextBlock  x:Name="fecha" FontSize="13"  FontWeight="Bold"     Text="{Binding fecha_corta}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </Window>
