@@ -7,6 +7,7 @@ using capa_datos;
 using Tweetinvi;
 using capa_entidades;
 using System.IO;
+using Tweetinvi.Parameters;
 
 namespace capa_negocio
 {
@@ -213,6 +214,27 @@ namespace capa_negocio
                 lista.Add(new TLineTweets(texto, imagen, fecha));
             }
             return lista;
+        }
+
+        public List<Mencion> obtenerMenciones()
+        {
+            List<Mencion> menciones = new List<Mencion>();
+
+            Auth.SetUserCredentials(consumer_key, consumer_secret,
+                acces_token, acces_token_secret);
+            var user = User.GetAuthenticatedUser();
+            var mentionsTimelineParameters = new MentionsTimelineParameters();
+            var tweets = Timeline.GetMentionsTimeline(mentionsTimelineParameters);
+
+            foreach (var mencion in tweets)
+            {
+                long id = mencion.Id;
+                string texto = mencion.Text;
+
+                menciones.Add(new Mencion(id, texto));
+            }
+            return menciones;
+
         }
 
     }

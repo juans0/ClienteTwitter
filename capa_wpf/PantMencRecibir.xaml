@@ -8,12 +8,12 @@
         Title="Recibir Menciones" Height="700" Width="1024">
     <Grid>
         <GroupBox x:Name="groupBox" Header="Menciones">
-           
-            <DataGrid x:Name="data" ItemsSource="{Binding}" Height="600" Width="990">
+
+            <DataGrid x:Name="dGrid" ItemsSource="{Binding}" Height="600" Width="990" IsReadOnly="True">
                 <DataGrid.Columns>
 
                     <!--Columna con la foto del usuario -->
-                    <DataGridTemplateColumn>
+                    <!-- <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -22,7 +22,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
+                    -->
                     <!--Aqui definimos los datos del usuario -->
                     <DataGridTemplateColumn Width="*">
 
@@ -31,8 +31,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock  x:Name="nombre"  FontSize="25" FontWeight="Bold"      Text="{Binding nombre}"/>
-                                    <TextBlock  x:Name="text"  FontSize="20"  FontWeight="Bold"  FontStyle="Italic"  Text="{Binding text}"/>
-                                    <TextBlock  x:Name="fecha" FontSize="13"  FontWeight="Bold"     Text="{Binding fecha_corta}"/>
+                                    <TextBlock  x:Name="text"  FontSize="20"  FontWeight="Bold"  FontStyle="Italic"  Text="{Binding text}"/>                                    
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

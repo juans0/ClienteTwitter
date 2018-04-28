@@ -26,6 +26,7 @@ namespace capa_wpf
         {
             InitializeComponent();
             negocio = neg;
+            dGrid.ItemsSource = negocio.obtenerMenciones();
         }
     }
 }

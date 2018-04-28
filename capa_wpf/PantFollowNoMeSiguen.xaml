@@ -5,8 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d"
-        Title="PantFollowNoMeSiguen" Height="300" Width="300">
+        Title="Followers que no me siguen" Height="700" Width="1024"
+        ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
-        
+        <!-- Definición Columnas -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Definición Filas-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"
+            x:Name="groupBox2" Header="Lista de Seguidores" Height="278" Width="1024">
+
+            <!-- DataGrid con un Databinding a una coleccion // SelectionChanged: Evento que se produce cuando hay un cambio en una selección-->
+            <DataGrid x:Name="gridSeguidores" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single" IsReadOnly="True" Margin="0,0,17,0"
+                      RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
+
+                <DataGrid.Columns>
+                    <!-- Creo una columna con un tipo personalizado. -->
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock  Text="Imagen"/>
+                        </DataGridTemplateColumn.Header>
+                        <!-- Definición del template de visualización de columna. -->
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image  x:Name="ImagenFollower" Source="{Binding Path=Imagen}" Stretch="UniformToFill" Width="50" Height="50"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Nombre}" Width="Auto" Header="Nombre"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Followers}" Width="Auto" Header="Seguidores"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox x:Name="groupBox" Header="Detalle Seguidor" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="325" Width="990" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Grid  Height="250" VerticalAlignment="Center" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!-- Imagen
+                <Label x:Name="imagenFollower" Grid.Row="0" Grid.Column="0">
+                    
+                </Label> -->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!-- Nombre -->
+                    <Label Content="Nombre:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="1" FontSize="16"/>
+                    <Label x:Name="nombre" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1" FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <!-- Seguidores -->
+                    <Label Content="Followers:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="2" FontSize="16"/>
+                    <Label x:Name="seguidores" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1"  FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+
+                </Grid>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

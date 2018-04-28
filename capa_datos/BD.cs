@@ -21,6 +21,8 @@ namespace capa_datos
                 baseDatos.CreateTable<MiTweet>();
                 baseDatos.CreateTable<TweetProgramado>();
                 baseDatos.CreateTable<UserApp>();
+                baseDatos.CreateTable<Mencion>();
+                baseDatos.CreateTable<Promocion>();
             }
             catch (Exception e)
             {
@@ -143,6 +145,27 @@ namespace capa_datos
                 return 0;
             }
             return 1;
-        }            
+        }
+
+        public List<Mencion> recibirMenciones(UserApp usuario)
+        {
+            List<Mencion> aux = new List<Mencion>();
+            aux = baseDatos.Query<Mencion>("select * from Mencion where idUsuario = " + usuario.idUsuario);
+            return aux;
+        }
+
+
+        private int eliminarMenciones(UserApp usuario)
+        {
+            try
+            {
+                baseDatos.Execute("DELETE FROM Mencion where idUsuario = " + "'" + usuario.idUsuario + "'");
+                return 0;
+            }
+            catch (Exception e)
+            {
+                return 1;
+            }
+        }
     }
 }
