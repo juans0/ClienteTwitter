@@ -57,14 +57,14 @@ namespace capa_wpf
 
         private void MenuItem_Click_NoMeSiguen(object sender, RoutedEventArgs e)
         {
-            PantFollowNoMeSiguen noFollowers = new PantFollowNoMeSiguen();
+            PantFollowNoMeSiguen noFollowers = new PantFollowNoMeSiguen(n);
             //Hide();
             noFollowers.Show();
         }
 
         private void MenuItem_Click_Recibir(object sender, RoutedEventArgs e)
         {
-            PantMencRecibir pRec = new PantMencRecibir();
+            PantMencRecibir pRec = new PantMencRecibir(n);
             //Hide();
             pRec.Show();
         }
