@@ -188,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PantRespuestaTweet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Principal_wpf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +221,9 @@
     </Compile>
     <Compile Include="PantPromoGestion.xaml.cs">
       <DependentUpon>PantPromoGestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantRespuestaTweet.xaml.cs">
+      <DependentUpon>PantRespuestaTweet.xaml</DependentUpon>
     </Compile>
     <Compile Include="Principal_wpf.xaml.cs">
       <DependentUpon>Principal_wpf.xaml</DependentUpon>
@@ -267,6 +274,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="retweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="twitter_fav.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="twitter_resp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="retweet1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="twitter_fav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="twitter_fav1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

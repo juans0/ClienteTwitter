@@ -14,7 +14,7 @@ namespace capa_negocio
     public class Negocio
     {
         // atributos
-        private BD bd;        
+        private BD bd;
         private List<UserApp> usuarios;
         private List<TweetProgramado> tweetsProgs;
         private string consumer_key;// = "MUVxm4j9XAdfYKObSFZDRdtW1";
@@ -23,12 +23,12 @@ namespace capa_negocio
         private string acces_token;//=
                                    //"195856574-MqaLD7G9wnIEWrqVOqGBptX8vRWp6pKEzoUBTHTs";
         private string acces_token_secret; //=
-            //"XljsdVJHJtqItKHyvMChqd5pT2bVFJn92Nvyk33uap6nV";
-        
+                                           //"XljsdVJHJtqItKHyvMChqd5pT2bVFJn92Nvyk33uap6nV";
+
         public Negocio()
         {
             bd = new BD();
-            
+
             usuarios = bd.cargarUsuarios();
             tweetsProgs = bd.cargarTweetProgramado();
             consumer_key = usuarios[0].consumerKey.Trim();
@@ -38,7 +38,7 @@ namespace capa_negocio
         }
 
         //Añadir tweet programado a la BD
-        public int guardarTweetBD(int id, string usuario, int programado, 
+        public int guardarTweetBD(int id, string usuario, int programado,
             string fechaProgramacion, string imagen, string titulo)
         {
             TweetProgramado tweetProg = new TweetProgramado(id, usuario, titulo,
@@ -54,13 +54,13 @@ namespace capa_negocio
         public List<UserApp> cargarUsuarios()
         {
             usuarios = bd.cargarUsuarios();
-            return usuarios;            
+            return usuarios;
         }
-        
+
         //Cargar tweets programados
         public List<TweetProgramado> cargarTweetsProgramados()
         {
-            return tweetsProgs;            
+            return tweetsProgs;
         }
 
         public string cargarImagen()
@@ -75,7 +75,7 @@ namespace capa_negocio
         public void mandarTweet(string texto)
         {
             Auth.SetUserCredentials(consumer_key, consumer_secret, acces_token, acces_token_secret);
-            var user = User.GetAuthenticatedUser();            
+            var user = User.GetAuthenticatedUser();
             var tweet = Tweet.PublishTweet(texto);
         }
 
@@ -147,9 +147,9 @@ namespace capa_negocio
                             consumerSecret = datos[7];
                             accessToken = datos[8];
                             accessTokenSecret = datos[9];
-                              
-                            respuesta = bd.anyadirUsuario(new UserApp(usuario, contrasenia, 
-                            email, nombre, apellidos, twitter_ID, consumerKey, 
+
+                            respuesta = bd.anyadirUsuario(new UserApp(usuario, contrasenia,
+                            email, nombre, apellidos, twitter_ID, consumerKey,
                             consumerSecret, accessToken, accessTokenSecret));
 
                             if (respuesta == 1)
@@ -234,7 +234,26 @@ namespace capa_negocio
                 menciones.Add(new Mencion(id, texto));
             }
             return menciones;
+        }
 
+        public void hacerRetweet(Mencion mencion)
+        {
+            var rtwt = Tweet.PublishRetweet(mencion.idMencion);
+        }
+
+        public void marcarFavorito(Mencion menc)
+        {
+            var fav = Tweet.FavoriteTweet(menc.idMencion);
+        }
+
+        public void responderTweet(Mencion m, string t)
+        {
+            var tweetToReplyTo = Tweet.GetTweet(m.idMencion);
+
+            // Debemos agregar @screenName del autor del tweet al que queremos responder
+            var textToPublish = string.Format("@{0} {1}", tweetToReplyTo.CreatedBy.ScreenName, t);
+            var tweet = Tweet.PublishTweetInReplyTo(textToPublish, m.idMencion);
+            Console.WriteLine("Publish success? {0}", tweet != null);
         }
 
     }

@@ -4,9 +4,79 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
-        mc:Ignorable="d"
-        Title="PantMencGestion" Height="300" Width="300">
-    <Grid>
-        
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Gestión Menciones" Height="700" Width="1024"
+        ResizeMode="NoResize" Icon="twitter.png">
+    <Grid x:Name="Menciones">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF1E8D6"/>
+                <GradientStop Color="#FF87C9E8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox x:Name="groupBox" Header="Menciones" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+
+            <DataGrid x:Name="gridMenciones" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single"
+                      IsReadOnly="True" Margin="10,17,18,417" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+
+
+                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding idMencion}" Header="ID"/>
+                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding texto}" Header="Tweet"/>
+                   <!-- <TextBlock  x:Name="text"  FontSize="20"  FontWeight="Bold" Text="{Binding text}"/>-->
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox x:Name="groupBox1" Header="Gestión" HorizontalAlignment="Left" Margin="18,279,0,0" VerticalAlignment="Top" Height="364" Width="975" Grid.ColumnSpan="2">
+            <Grid x:Name="gridGestion">
+                <TextBlock x:Name="txtMencion" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="217" Width="946" FontSize="16" FontWeight="Bold">
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4BA1C9" Offset="1"/>
+                            <GradientStop Color="#FFA9CBCF"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <Grid Margin="6,239,4,58">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnRt" Click="click_Retweet" Grid.Column="1"  Background="#FF87C9E8" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Image Grid.Row="0" Name="imgRt"  Source="retweet1.png" Stretch="Fill"/>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnFav" Click="click_Fav" Grid.Column="3" Background="#FF87C9E8" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Image Grid.Row="0" Name="imgFav"  Source="twitter_fav1.png" Stretch="Fill"/>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnResp" Click="click_Resp" Grid.Column="5" Background="#FF87C9E8" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Image Grid.Row="0" Name="imgResp"  Source="twitter_resp.png" Stretch="Fill"/>
+                        </Grid>
+                    </Button>
+
+                </Grid>
+                <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="943" Height="33" FontSize="16" FontWeight="Bold" Foreground="#FF074AD8"/>
+            </Grid>
+        </GroupBox>
+
+
     </Grid>
 </Window>

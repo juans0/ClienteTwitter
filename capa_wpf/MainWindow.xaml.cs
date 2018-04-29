@@ -79,6 +79,7 @@ namespace capa_wpf
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Application.Current.Shutdown();
         }
     }
 }

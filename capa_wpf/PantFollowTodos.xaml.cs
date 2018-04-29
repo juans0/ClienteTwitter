@@ -37,8 +37,6 @@ namespace capa_wpf
             UsuariosFollowers fila = (UsuariosFollowers)nuevoData.SelectedItem;
             nombre.Content = fila.Nombre;
             seguidores.Content = fila.Followers;
-            //imagenFollower. = new BitmapImage(new Uri(temp.Imagen, UriKind.Absolute));
-
         }
     }
 }

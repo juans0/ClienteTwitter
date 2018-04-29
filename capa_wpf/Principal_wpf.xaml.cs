@@ -71,7 +71,7 @@ namespace capa_wpf
 
         private void MenuItem_Click_GestMen(object sender, RoutedEventArgs e)
         {
-            PantMencGestion pMGest = new PantMencGestion();
+            PantMencGestion pMGest = new PantMencGestion(n);
             //Hide();
             pMGest.Show();
         }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Login" Height="312" Width="369" ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
         <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="55,49,0,0" VerticalAlignment="Top"/>

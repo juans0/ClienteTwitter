@@ -4,12 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
-        mc:Ignorable="d"
-        Title="Recibir Menciones" Height="700" Width="1024">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Recibir Menciones" Height="700" Width="1024" ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFA9E4F1" Offset="0"/>
+                <GradientStop Color="#FF3D8B9C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <GroupBox x:Name="groupBox" Header="Menciones">
 
-            <DataGrid x:Name="dGrid" ItemsSource="{Binding}" Height="600" Width="990" IsReadOnly="True">
+            <DataGrid x:Name="dGrid" ItemsSource="{Binding}" Height="600" Width="990" 
+                      IsReadOnly="True" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3"><!--AutoGenerateColumns="False"-->
                 <DataGrid.Columns>
 
                     <!--Columna con la foto del usuario -->
