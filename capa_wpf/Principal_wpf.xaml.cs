@@ -85,7 +85,7 @@ namespace capa_wpf
 
         private void MenuItem_Click_Alta(object sender, RoutedEventArgs e)
         {
-            PantPromoAlta pAlta = new PantPromoAlta();
+            PantPromoAlta pAlta = new PantPromoAlta(n);
             //Hide();
             pAlta.Show();
         }

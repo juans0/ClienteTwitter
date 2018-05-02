@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:capa_wpf"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"  WindowStartupLocation="CenterScreen"
         Title="Recibir Menciones" Height="700" Width="1024" ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
         <Grid.Background>
@@ -16,33 +16,27 @@
         <GroupBox x:Name="groupBox" Header="Menciones">
 
             <DataGrid x:Name="dGrid" ItemsSource="{Binding}" Height="600" Width="990" 
-                      IsReadOnly="True" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3"><!--AutoGenerateColumns="False"-->
+                      IsReadOnly="True" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
                 <DataGrid.Columns>
 
                     <!--Columna con la foto del usuario -->
-                    <!-- <DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock  Text="Imagen"/>
+                        </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <Image  x:Name="ImagenFollower" Source="{Binding Path=Imagen}" Stretch="UniformToFill" Width="50" Height="50"/>
+                                    <Image  x:Name="ImagenFollower" Source="{Binding Path=foto}" Stretch="UniformToFill" Width="50" Height="50"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    -->
+                    
                     <!--Aqui definimos los datos del usuario -->
-                    <DataGridTemplateColumn Width="*">
-
-                        <!-- Definición del template de visualización de columna. Usaremos un TextBlock -->
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock  x:Name="nombre"  FontSize="25" FontWeight="Bold"      Text="{Binding nombre}"/>
-                                    <TextBlock  x:Name="text"  FontSize="20"  FontWeight="Bold"  FontStyle="Italic"  Text="{Binding text}"/>                                    
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding idMencion}" Width="*" Header="idFollower"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding texto}" Width="3*" Header="Tweet"/>                                    
+                                
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

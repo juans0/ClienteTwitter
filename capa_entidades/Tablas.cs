@@ -148,16 +148,17 @@ namespace capa_entidades
         public int idPromocion { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
-        public string fechaDesde { get; set; }
-        public string fechaHasta { get; set; }
+        public DateTime fechaDesde { get; set; }
+        public DateTime fechaHasta { get; set; }
         public string idUsulFollow { get; set; }
         public long idTweetRetweet { get; set; }
         public bool finalizada { get; set; }
+        public byte[] imagen { get; set; }
 
         public Promocion() { }
 
         public Promocion(int idPromocion, string nombre, string descripcion,
-            string fechaDesde, string fechaHasta, string idUsulFollow, 
+            DateTime fechaDesde, DateTime fechaHasta, string idUsulFollow, 
             long idTweetRetweet, bool finalizada)
         {
             this.idPromocion = idPromocion;
@@ -168,6 +169,13 @@ namespace capa_entidades
             this.idUsulFollow = idUsulFollow;
             this.idTweetRetweet = idTweetRetweet;
             this.finalizada = finalizada;
+        }
+        public Promocion(string nombre, DateTime fIni, DateTime fFin, byte[] imagen)
+        {
+            this.nombre = nombre;
+            fechaDesde = fIni;
+            fechaHasta = fFin;
+            this.imagen = imagen;
         }
 
         public int CompareTo(object obj)
@@ -205,6 +213,8 @@ namespace capa_entidades
     {
         public long idMencion { get; set; }
         public string texto { get; set; }
+
+        public string foto { get;  set;}
 
         public Mencion() { }
 

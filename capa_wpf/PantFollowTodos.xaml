@@ -45,8 +45,8 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Nombre}" Width="Auto" Header="Nombre"/>
-                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Followers}" Width="Auto" Header="Seguidores"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Nombre}" Width="*" Header="Nombre"/>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Followers}" Width="2*" Header="Seguidores"/>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

@@ -256,5 +256,12 @@ namespace capa_negocio
             Console.WriteLine("Publish success? {0}", tweet != null);
         }
 
+        public Promocion publicarPromocion(Promocion promocion)
+        {
+            var tweetPromo = Tweet.PublishTweetWithImage(promocion.nombre, promocion.imagen);
+            promocion.idPromocion = (int)tweetPromo.Id;
+            return promocion;
+        }
+
     }
 }
