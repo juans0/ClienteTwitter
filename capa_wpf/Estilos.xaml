@@ -16,7 +16,7 @@
                     <!-- Defino un Trigger para su funcionamineto -->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="b1" Property="BorderBrush" Value="White"/>
+                            <Setter TargetName="b1" Property="BorderBrush" Value="#FF000AD4"/>
                             <Setter TargetName="b1" Property="Background" Value="#FF2434D3"/>
                         </Trigger>
 

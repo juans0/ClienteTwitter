@@ -7,7 +7,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Respuesta al Tweet" Height="350" Width="300"
         ResizeMode="NoResize" Icon="twitter.png">
-<!--
+
     <Window.Resources>
         <ResourceDictionary>
             
@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
--->    
+   
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -27,9 +27,9 @@
 
         <Label x:Name="lbl" Content="Respuesta:" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="272" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtResp" Margin="10,134,10,0" VerticalAlignment="Top" Height="91" BorderBrush="Black" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="btnAceptar" Click="btnAceptar_Click" Content="Aceptar" Margin="47,245,170,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCancelar" Click="btnCancelar_Click" Content="Cancelar" Margin="170,245,47,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Left" Margin="10,278,0,0" VerticalAlignment="Top" Width="272"/>
+        <Button x:Name="btnAceptar" Click="btnAceptar_Click" Content="Aceptar" Margin="40,245,170,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <Button x:Name="btnCancelar" Click="btnCancelar_Click" Content="Cancelar" Margin="170,245,40,0" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="272"/>
 
         <TextBlock x:Name="txtMencion" HorizontalAlignment="Left" Margin="10,32,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="272" Background="#FFCCF1F7"/>
         <Label x:Name="label" Content="Tweet:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>

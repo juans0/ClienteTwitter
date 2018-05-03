@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Login" Height="312" Width="369" ResizeMode="NoResize" Icon="twitter.png">
-<!--
+
     <Window.Resources>
         <ResourceDictionary>
             
@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
--->
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

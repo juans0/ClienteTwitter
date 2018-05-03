@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:capa_wpf" ResizeMode="NoResize"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Alta Promociones" Height="700" Width="1024" Icon="twitter.png">
-<!--
+
     <Window.Resources>
         <ResourceDictionary>
            
@@ -15,7 +15,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
--->
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -55,7 +55,7 @@
                 <Label Content=""  x:Name="lblInfo" Margin="43,41,26,0" HorizontalAlignment="Center" Width="858" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="53" FontSize="18" Grid.Row="4"/>
                 <Image x:Name="imgPromo" Margin="0.333,40,51.333,38" Grid.Column="2" Grid.RowSpan="3" OpacityMask="#FFE4CBCB"/>
 
-                <Button x:Name="btnImg" Content="Agregar Imagen" Margin="24,10,71,71" Click="btnImg_Click" Grid.Row="3" Grid.Column="2"/>
+                <Button x:Name="btnImg" Content="Agregar Imagen" Margin="24,10,71,71" Click="btnImg_Click" Grid.Row="3" Grid.Column="2" FontStyle="Italic"/>
 
                 <StackPanel Grid.ColumnSpan="2" Margin="34,40,141.667,10" Grid.RowSpan="3" HorizontalAlignment="Center"
                     VerticalAlignment="Center" Height="326" Width="472">
@@ -71,7 +71,7 @@
                     <DatePicker x:Name="txtFechaFin" Margin="40,0,0,10" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
                 </StackPanel>
 
-                <Button x:Name="btnPromo"  Content="Publicar promoción" Click="btnPromo_Click" Margin="108,49,246,29" Grid.Row="3" FontSize="20" Grid.ColumnSpan="2"/>
+                <Button x:Name="btnPromo"  Content="Publicar promoción" Click="btnPromo_Click" Margin="108,49,246,29" Grid.Row="3" FontSize="20" Grid.ColumnSpan="2" FontStyle="Italic"/>
                 <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Left" Height="283" Margin="0,40,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="258"/>
             </Grid>
         </GroupBox>
