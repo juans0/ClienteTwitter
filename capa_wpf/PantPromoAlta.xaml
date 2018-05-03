@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:capa_wpf" ResizeMode="NoResize"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Alta Promociones" Height="700" Width="1024" Icon="twitter.png">
-
+<!--
+    <Window.Resources>
+        <ResourceDictionary>
+           
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Estilos.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+-->
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

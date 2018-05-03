@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:capa_wpf"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Login" Height="312" Width="369" ResizeMode="NoResize" Icon="twitter.png">
+<!--
+    <Window.Resources>
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Estilos.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+-->
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,12 +24,12 @@
                 <GradientStop Color="#FF87C9E8" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="55,49,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Contraseña" HorizontalAlignment="Left" Margin="55,106,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="75,190,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="205,190,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="55,49,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Contraseña" HorizontalAlignment="Left" Margin="55,106,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="55,178,0,0" VerticalAlignment="Top" Width="95" Click="btnAceptar_Click" Height="41" FontStyle="Italic"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="210,178,0,0" VerticalAlignment="Top" Width="95" Click="btnCancelar_Click" Height="41" FontStyle="Italic"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="185,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblResult" Content="" Foreground="Red" HorizontalAlignment="Left" Margin="55,230,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label x:Name="lblResult" Content="" Foreground="Red" HorizontalAlignment="Left" Margin="55,242,0,0" VerticalAlignment="Top" Width="250"/>
         <PasswordBox x:Name="txtContr" HorizontalAlignment="Left" Margin="185,110,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
 
     </Grid>
