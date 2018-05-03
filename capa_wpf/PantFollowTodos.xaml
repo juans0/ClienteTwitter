@@ -8,6 +8,12 @@
         Title="Todos mis Followers" Height="700" Width="1024"
         ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCAE0F0" Offset="0"/>
+                <GradientStop Color="#FF7AB2D8" Offset="0.85"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <!-- Definición Columnas -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,10 +30,10 @@
         </Grid.RowDefinitions>
 
         <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"
-            x:Name="groupBox2" Header="Lista de Seguidores" Height="278" Width="1024">
+            x:Name="groupBox2" Header="Lista de Seguidores" Margin="10,29,18,0">
 
             <!-- DataGrid con un Databinding a una coleccion // SelectionChanged: Evento que se produce cuando hay un cambio en una selección-->
-            <DataGrid x:Name="gridSeguidores" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single" IsReadOnly="True" Margin="0,0,17,0"
+            <DataGrid x:Name="gridSeguidores" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single" IsReadOnly="True" Margin="10,10,17,10"
                       RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
 
                 <DataGrid.Columns>
@@ -51,8 +57,8 @@
             </DataGrid>
         </GroupBox>
 
-        <GroupBox x:Name="groupBox" Header="Detalle Seguidor" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="325" Width="990" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Grid  Height="250" VerticalAlignment="Center" >
+        <GroupBox x:Name="groupBox" Header="Detalle Seguidor" HorizontalAlignment="Left" Margin="10,21,0,0" Grid.Row="2" VerticalAlignment="Top" Height="304" Width="990" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Grid  Height="192" VerticalAlignment="Center" Margin="0,26,0,85" HorizontalAlignment="Left" Width="961" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -64,7 +70,7 @@
                 <!-- Imagen
                 <Label x:Name="imagenFollower" Grid.Row="0" Grid.Column="0">
                     
-                </Label> -->
+                 </Label> -->
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -73,8 +79,8 @@
                     </Grid.RowDefinitions>
 
                     <!-- Nombre -->
-                    <Label Content="Nombre:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="1" FontSize="16"/>
-                    <Label x:Name="nombre" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1" FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+                    <Label Content="Nombre:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" FontSize="16" Margin="0,0,0,24"/>
+                    <Label x:Name="nombre" Content="" Background="#D2DADE" Foreground="#FF878787" FontWeight="Bold" FontSize="16" Grid.RowSpan="3" Margin="0,40,0,0"/>
                 </Grid>
 
                 <Grid Grid.Column="2">
@@ -84,13 +90,13 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <!-- Seguidores -->
-                    <Label Content="Followers:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0"  FontWeight="Bold" Grid.Column="2" FontSize="16"/>
-                    <Label x:Name="seguidores" Content="" Background="#D2DADE" Foreground="#FF878787" Grid.Row="1"  FontWeight="Bold" FontSize="16" Grid.RowSpan="2"/>
+                    <Label Content="Followers:" Background="#FF76A9C7" Foreground="#FF152364" Grid.Row="0" FontWeight="Bold" Grid.Column="2" FontSize="16" Margin="0,0,0,24"/>
+                    <Label x:Name="seguidores" Content="" Background="#D2DADE" Foreground="#FF878787" FontWeight="Bold" FontSize="16" Grid.RowSpan="3" Margin="0,40,0,0"/>
 
                 </Grid>
+                <Image x:Name="imagen" HorizontalAlignment="Left" Height="130" Margin="75,22,0,0" VerticalAlignment="Top" Width="130"/>
             </Grid>
         </GroupBox>
-
 
     </Grid>
 </Window>

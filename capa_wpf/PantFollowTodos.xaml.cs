@@ -34,9 +34,10 @@ namespace capa_wpf
         private void cambiarSeleccionGrid(object sender, SelectionChangedEventArgs e)
         {
             DataGrid nuevoData = (DataGrid)sender;
-            UsuariosFollowers fila = (UsuariosFollowers)nuevoData.SelectedItem;
-            nombre.Content = fila.Nombre;
-            seguidores.Content = fila.Followers;
+            UsuariosFollowers followers = (UsuariosFollowers)nuevoData.SelectedItem;
+            nombre.Content = followers.Nombre;
+            seguidores.Content = followers.Followers;
+            imagen.Source = new BitmapImage(new Uri(followers.Imagen, UriKind.Absolute));
         }
     }
 }

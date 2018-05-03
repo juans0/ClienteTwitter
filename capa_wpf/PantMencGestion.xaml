@@ -24,8 +24,8 @@
                       IsReadOnly="True" Margin="10,17,18,417" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding idMencion}" Header="ID"/>
-                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding texto}" Header="Tweet"/>
+                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding idMencion}" Header="ID" Width="*"/>
+                    <DataGridTextColumn IsReadOnly="True" FontWeight="Bold" Binding="{Binding texto}" Header="Tweet" Width="2*"/>
               
                 </DataGrid.Columns>
             </DataGrid>

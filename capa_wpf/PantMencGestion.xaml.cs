@@ -52,7 +52,14 @@ namespace capa_wpf
             if (mencion != null)
             {
                 n.hacerRetweet(mencion);
+                lblMensaje.Foreground = new SolidColorBrush(Colors.Blue);
                 lblMensaje.Content = "Has retwiteado este tweet";
+                timer.Start();
+            }
+            else
+            {
+                lblMensaje.Foreground = new SolidColorBrush(Colors.Red);
+                lblMensaje.Content = "Selecione una mención para retwitear";
                 timer.Start();
             }
         }
@@ -65,15 +72,36 @@ namespace capa_wpf
             if (mencion != null)
             {
                 n.marcarFavorito(mencion);
+                lblMensaje.Foreground = new SolidColorBrush(Colors.Blue);
                 lblMensaje.Content = "Has marcado este tweet como favorito";
                 timer.Start();
             }
+            else
+            {
+                lblMensaje.Foreground = new SolidColorBrush(Colors.Red);
+                lblMensaje.Content = "Selecione una mención para marcar como favorita";
+                timer.Start();
+            }
+            
         }
 
         private void click_Resp(object sender, RoutedEventArgs e)
         {
-            PantRespuestaTweet p = new PantRespuestaTweet(mencion, n);
-            p.Show();      
+            timer.Interval = new TimeSpan(0, 0, 5);
+            timer.Tick += Timer_Tick;
+
+            if (txtMencion.Text != "")
+            {
+                PantRespuestaTweet p = new PantRespuestaTweet(mencion, n);
+                p.Show();
+            }
+            else
+            {
+                lblMensaje.Foreground = new SolidColorBrush(Colors.Red);
+                lblMensaje.Content = "Selecione una mención para responder";
+                timer.Start();
+            }
+            
         }
 
         private void Timer_Tick(object sender, EventArgs e)

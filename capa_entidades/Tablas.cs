@@ -213,12 +213,17 @@ namespace capa_entidades
     {
         public long idMencion { get; set; }
         public string texto { get; set; }
-
         public string foto { get;  set;}
 
         public Mencion() { }
 
         public Mencion(long idMencion, string texto)
+        {
+            this.idMencion = idMencion;
+            this.texto = texto;
+        }
+
+        public Mencion(long idMencion, string texto, string foto)
         {
             this.idMencion = idMencion;
             this.texto = texto;

@@ -27,18 +27,17 @@ namespace capa_wpf
         {
             InitializeComponent();             
             n = neg;
-            misFollowers = n.obtenerFollowers();
+            misFollowers = n.obtenerFollowersNoSigo();
             gridNoSigo.ItemsSource = misFollowers; //Obtiene o establece una colección utilizada para se usa para generar el contenido de ItemsControl.
         }
 
         private void cambiarSeleccionGrid(object sender, SelectionChangedEventArgs e)
         {
             DataGrid nuevoData = (DataGrid)sender;
-            UsuariosFollowers fila = (UsuariosFollowers)nuevoData.SelectedItem;
-            nombre.Content = fila.Nombre;
-            seguidores.Content = fila.Followers;
-            //imagenFollower. = new BitmapImage(new Uri(temp.Imagen, UriKind.Absolute));
-            
+            UsuariosFollowers followers = (UsuariosFollowers)nuevoData.SelectedItem;
+            nombre.Content = followers.Nombre;
+            seguidores.Content = followers.Followers;
+            imagen.Source = new BitmapImage(new Uri(followers.Imagen, UriKind.Absolute));            
         }
     }
 }

@@ -197,6 +197,30 @@ namespace capa_negocio
             return listaFollowers;
         }
 
+        public List<UsuariosFollowers> obtenerFollowersNoSigo()
+        {
+            List<UsuariosFollowers> listaNoSigo = new List<UsuariosFollowers>();
+
+            Auth.SetUserCredentials(consumer_key, consumer_secret,
+                acces_token, acces_token_secret);
+            var user = User.GetAuthenticatedUser();
+
+            var lista = User.GetFollowers(user);
+
+            foreach (var datos in lista)
+            {
+                if (datos.Following == false)
+                {
+                    string nombre = datos.Name;
+                    string imagen = datos.ProfileImageUrlFullSize;
+                    int followers = datos.FollowersCount;
+
+                    listaNoSigo.Add(new UsuariosFollowers(imagen, nombre, followers));
+                }                
+            }
+            return listaNoSigo;
+        }
+
         public List<TLineTweets> cargarTimeLine()
         {
             List<TLineTweets> lista = new List<TLineTweets>();
@@ -230,10 +254,11 @@ namespace capa_negocio
 
             foreach (var mencion in tweets)
             {
+
                 long id = mencion.Id;
                 string texto = mencion.Text;
-
-                menciones.Add(new Mencion(id, texto));
+                string foto = mencion.CreatedBy.ProfileImageUrl400x400;
+                menciones.Add(new Mencion(id, texto, foto));
             }
             return menciones;
         }

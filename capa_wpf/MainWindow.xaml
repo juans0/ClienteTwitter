@@ -7,6 +7,12 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Login" Height="312" Width="369" ResizeMode="NoResize" Icon="twitter.png">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF1E8D6"/>
+                <GradientStop Color="#FF87C9E8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="55,49,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Contraseña" HorizontalAlignment="Left" Margin="55,106,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="75,190,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
