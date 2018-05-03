@@ -155,17 +155,50 @@ namespace capa_datos
         }
 
 
-        private int eliminarMenciones(UserApp usuario)
+        public int eliminarMenciones(UserApp usuario)
         {
             try
             {
                 baseDatos.Execute("DELETE FROM Mencion where idUsuario = " + "'" + usuario.idUsuario + "'");
-                return 0;
+                return 1;
             }
             catch (Exception e)
             {
+                return 0;
+            }
+        }
+
+        public int publicarPromociones(Promocion promo)
+        {
+            try
+            {
+                baseDatos.Insert(promo);
                 return 1;
             }
+            catch(Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public List<Promocion> cargarPromociones()
+        {
+            List<Promocion> promos = new List<Promocion>();
+
+            try
+            {
+                TableQuery<Promocion> listaPromos = baseDatos.Table<Promocion>();
+
+                for (int i = 0; i < listaPromos.Count(); i++)
+                {
+                    promos.Add(listaPromos.ElementAt(i));
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+            return promos;
         }
     }
 }

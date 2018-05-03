@@ -15,6 +15,7 @@ using capa_negocio;
 using Microsoft.Win32;
 using System.Drawing;
 using capa_entidades;
+using System.Windows.Threading;
 
 namespace capa_wpf
 {
@@ -25,10 +26,15 @@ namespace capa_wpf
     {
         byte[] fotoArray;
         Negocio n;
+        DispatcherTimer timer; 
+
         public PantPromoAlta(Negocio n)
         {
             InitializeComponent();
             this.n = n;
+            timer = new DispatcherTimer();
+            txtFechaFin.SelectedDate = DateTime.Now.Date;
+            txtFechaIni.SelectedDate = DateTime.Now.Date;
         }
 
         private void btnImg_Click(object sender, RoutedEventArgs e)
@@ -37,8 +43,8 @@ namespace capa_wpf
             {
                 OpenFileDialog openFile = new OpenFileDialog();
                 BitmapImage myBitmapImage = new BitmapImage();
-                openFile.Title = "Seleccione la Imagen a Mostrar";
-                openFile.Filter = "Image files (*.png; *.jpeg)| *.png; *.jpeg | All files(*.*) | *.* ";
+                openFile.Title = "Seleccione la Imagen de la Promoción";
+                openFile.Filter = "Archivos de imagen (*.png; *.jpeg; *.jpg) | *.jpg; *.png; *.jpeg  | Todos los ficheros(*.*) | *.* ";
 
                 if (openFile.ShowDialog() == true)
                 {
@@ -71,30 +77,40 @@ namespace capa_wpf
             DateTime fechaFin = txtFechaFin.SelectedDate.Value.Date;
             string nombre = txtNombre.Text;
             byte[] foto = fotoArray;
+            timer.Interval = new TimeSpan(0, 0, 5);
+            timer.Tick += Timer_Tick;
+
             if (foto == null || nombre.Equals(""))
             {
-                infoText.Foreground = new SolidColorBrush(Colors.Red);
-                infoText.Text = "Faltan opciones por rellenar";
+                lblInfo.Foreground = new SolidColorBrush(Colors.Red);
+                lblInfo.Content = "Faltan opciones por rellenar";
+                timer.Start();
             }
             else
             {
                 Promocion promo = new Promocion(nombre, fechaIni, fechaFin, foto);
                 int number = n.publicarPromocion(promo);
-                string mensaje;
+                
                 if (number == 1)
                 {
-                    //no se ha podido llevar a cabo la promocion
-                    mensaje = "No se podido llevar a cabo la introduccion de la promocion";
-                    infoText.Foreground = new SolidColorBrush(Colors.Red);
+                    //promocion publicada
+                    lblInfo.Content = "Promoción publicada";
+                    lblInfo.Foreground = new SolidColorBrush(Colors.Blue);
+                    timer.Start();
                 }
                 else
                 {
-                    //se ha introducido correctamente la promocion
-                    mensaje = "Promocion subida correctamente";
-                    infoText.Foreground = new SolidColorBrush(Colors.Blue);
-                }
-                infoText.Text = mensaje;
+                    //error al publicar la promocion
+                    lblInfo.Content = "Error al publicar la promición";
+                    lblInfo.Foreground = new SolidColorBrush(Colors.Red);
+                    timer.Start();
+                }               
             }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblInfo.Content = "";
         }
     }
 }

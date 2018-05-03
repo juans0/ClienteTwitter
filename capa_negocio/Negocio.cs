@@ -17,6 +17,7 @@ namespace capa_negocio
         private BD bd;
         private List<UserApp> usuarios;
         private List<TweetProgramado> tweetsProgs;
+        private List<Promocion> promociones;
         private string consumer_key;// = "MUVxm4j9XAdfYKObSFZDRdtW1";
         private string consumer_secret;// =
                                        //"LfCD5r2j5yqXxgEl3oSeQrMzMgVeFZzrL90k7jCaAH2ttFmJv1";
@@ -31,6 +32,7 @@ namespace capa_negocio
 
             usuarios = bd.cargarUsuarios();
             tweetsProgs = bd.cargarTweetProgramado();
+            promociones = bd.cargarPromociones();
             consumer_key = usuarios[0].consumerKey.Trim();
             consumer_secret = usuarios[0].consumerSecret.Trim();
             acces_token = usuarios[0].accessToken.Trim();
@@ -253,14 +255,23 @@ namespace capa_negocio
             // Debemos agregar @screenName del autor del tweet al que queremos responder
             var textToPublish = string.Format("@{0} {1}", tweetToReplyTo.CreatedBy.ScreenName, t);
             var tweet = Tweet.PublishTweetInReplyTo(textToPublish, m.idMencion);
-            Console.WriteLine("Publish success? {0}", tweet != null);
+            //Console.WriteLine("Publish success? {0}", tweet != null);
         }
 
-        public Promocion publicarPromocion(Promocion promocion)
+        public int publicarPromocion(Promocion promocion)
         {
+            Auth.SetUserCredentials(consumer_key, consumer_secret,
+               acces_token, acces_token_secret);
+            var user = User.GetAuthenticatedUser();
+
             var tweetPromo = Tweet.PublishTweetWithImage(promocion.nombre, promocion.imagen);
             promocion.idPromocion = (int)tweetPromo.Id;
-            return promocion;
+            int respuesta = bd.publicarPromociones(promocion);
+            if(respuesta != 0)
+            {
+                promociones.Add(promocion);
+            }
+            return respuesta;
         }
 
     }
