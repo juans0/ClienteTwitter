@@ -7,9 +7,19 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Principal_wpf" Height="700" Width="1024" ResizeMode="NoResize" Icon="twitter.png">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <!-- añado los estilos de un fichero de diccionario de recursos -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Estilos.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+   
     <Grid>
         <StackPanel>
-            <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="517">
+            <Menu x:Name="menu" Height="27" Width="1018" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14">
                 <MenuItem Header="Archivo">
                     <MenuItem x:Name="Salir" Header="Salir" Click="MenuItem_Click_Salir"/>
                 </MenuItem>
@@ -36,7 +46,7 @@
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Image x:Name="imgTwitterPG" Source="twitter.png" Height="650"/>
-                <Label x:Name="lblUsuario" Content="Usuario: " HorizontalAlignment="Left" Margin="10,615,0,0" VerticalAlignment="Top" Width="135" Height="31" Foreground="#FF2D3DA2" FontSize="14"/>
+                <Label x:Name="lblUsuario" Content="Usuario: " HorizontalAlignment="Left" Margin="10,595,0,0" VerticalAlignment="Top" Width="240" Height="31" Foreground="#FF2D3DA2" FontSize="14" FontWeight="Bold"/>
                 <Label x:Name="lblError" Content="" HorizontalAlignment="Left" Margin="150,615,0,0" VerticalAlignment="Top" Width="858" Height="31" Foreground="#FF831111"/>
 
 

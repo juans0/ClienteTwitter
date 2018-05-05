@@ -26,9 +26,24 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Background" Value="#545d6a"/>
-        <Setter Property="Margin" Value="30 10"/>
+        <Setter Property="Margin" Value="30, 10"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="18"/>
+    </Style>
+
+    <Style TargetType="{x:Type MenuItem}"  >
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Adobe Gothic Std B"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="#FF266BBD"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Width" Value="254"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
     </Style>
 
 </ResourceDictionary>

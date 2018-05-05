@@ -7,6 +7,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Gestión Menciones" Height="700" Width="1024"
         ResizeMode="NoResize" Icon="twitter.png">
+   
     <Grid x:Name="Menciones">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,7 +19,7 @@
                 <GradientStop Color="#FF87C9E8" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <GroupBox x:Name="groupBox" Header="Menciones" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+        <GroupBox x:Name="groupBox" Header="Menciones" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="14" FontWeight="Bold">
 
             <DataGrid x:Name="gridMenciones" ItemsSource="{Binding}" SelectionChanged="cambiarSeleccionGrid" SelectionMode="Single"
                       IsReadOnly="True" Margin="10,17,18,417" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">
@@ -31,7 +32,7 @@
             </DataGrid>
         </GroupBox>
 
-        <GroupBox x:Name="groupBox1" Header="Gestión" HorizontalAlignment="Left" Margin="18,279,0,0" VerticalAlignment="Top" Height="364" Width="975" Grid.ColumnSpan="2">
+        <GroupBox x:Name="groupBox1" Header="Gestión" HorizontalAlignment="Left" Margin="18,279,0,0" VerticalAlignment="Top" Height="364" Width="975" Grid.ColumnSpan="2" FontSize="14" FontWeight="Bold">
             <Grid x:Name="gridGestion">
                 <TextBlock x:Name="txtMencion" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="217" Width="946" FontSize="16" FontWeight="Bold">
                     <TextBlock.Background>
@@ -54,17 +55,35 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Name="btnRt" Click="click_Retweet" Grid.Column="1"  Background="#FF87C9E8" BorderBrush="{x:Null}">
+                    <Button Name="btnRt" Click="click_Retweet" Grid.Column="1" BorderBrush="{x:Null}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF9DCFE4" Offset="1"/>
+                                <GradientStop Color="#FF90CBE6"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <Grid>
                             <Image Grid.Row="0" Name="imgRt"  Source="retweet1.png" Stretch="Fill"/>
                         </Grid>
                     </Button>
-                    <Button Name="btnFav" Click="click_Fav" Grid.Column="3" Background="#FF87C9E8" BorderBrush="{x:Null}">
+                    <Button Name="btnFav" Click="click_Fav" Grid.Column="3" BorderBrush="{x:Null}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF9DCFE4" Offset="1"/>
+                                <GradientStop Color="#FF90CBE6"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <Grid>
                             <Image Grid.Row="0" Name="imgFav"  Source="twitter_fav1.png" Stretch="Fill"/>
                         </Grid>
                     </Button>
-                    <Button Name="btnResp" Click="click_Resp" Grid.Column="5" Background="#FF87C9E8" BorderBrush="{x:Null}">
+                    <Button Name="btnResp" Click="click_Resp" Grid.Column="5" BorderBrush="{x:Null}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#FF9DCFE4" Offset="1"/>
+                                <GradientStop Color="#FF90CBE6"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <Grid>
                             <Image Grid.Row="0" Name="imgResp"  Source="twitter_resp.png" Stretch="Fill"/>
                         </Grid>

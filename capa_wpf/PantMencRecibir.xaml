@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF3D8B9C" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <GroupBox x:Name="groupBox" Header="Menciones">
+        <GroupBox x:Name="groupBox" Header="Menciones" FontSize="16" FontWeight="Bold">
 
             <DataGrid x:Name="dGrid" ItemsSource="{Binding}" Height="600" Width="990" 
                       IsReadOnly="True" RowBackground="#F0F0F0" AlternatingRowBackground="#C1D9E3" AutoGenerateColumns="False">

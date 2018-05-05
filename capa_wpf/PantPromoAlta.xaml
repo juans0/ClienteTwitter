@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
 
         <GroupBox x:Name="groupBox" Header="Promoción" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"
-              Foreground="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="4" Width="954" Height="636" Margin="34,10,0,0" BorderBrush="Black">
+              Foreground="Black" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="4" Width="954" Height="636" Margin="34,10,0,0" FontWeight="Bold">
             <Grid Margin="0,0,15,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

@@ -28,7 +28,7 @@ namespace capa_wpf
             InitializeComponent();
             n = neg;
             misFollowers = n.obtenerFollowers();
-            gridSeguidores.ItemsSource = misFollowers;
+            gridNoMeSiguen.ItemsSource = misFollowers;
         }
 
         private void cambiarSeleccionGrid(object sender, SelectionChangedEventArgs e)
